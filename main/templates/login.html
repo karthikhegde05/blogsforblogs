@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block body %}
+<!--<html>
+<head>
+	<title>blogsforblogs - login</title>
+</head>--!>
+<body>
+	<div>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<ul>
+			{% for message in messages %}
+				<li>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	{% endwith %}
+	</div>
+	<h1 style="text-align:center;">Login!</h1>
+	<form action="", method="POST">
+	<fieldset>
+		<legend style="text-align:center;">Login Form</legend>
+		{{ form.hidden_tag() }}<br>
+		<div style="text-align:center;">
+			<div>
+				{{ form.username.label }}<br>
+				{% if form.username.errors %}
+					<div>
+					{{ form.username }}
+					{% for error in form.username.errors%}
+					<span>{{ error }}</span>
+					{% endfor %}
+					</div>
+				{% else %}
+					{{ form.username }}
+				{% endif %}
+			</div>
+			<br>
+			<div>
+				{{ form.password.label }}<br>
+				{% if form.password.errors %}
+					<div>
+					{{ form.password }}
+					{% for error in form.password.errors%}
+					<span>{{ error }}</span>
+					{% endfor %}
+					</div>
+				{% else %}
+					{{ form.password }}
+				{% endif %}
+			</div>
+			<br>
+			<div>
+				{{ form.submit }}
+			</div>
+
+		</div>
+	</fieldset>
+	</form>
+	<br>
+	<p style="text-align:center;">Haven't registered yet? <a href="{{ url_for('register') }}">Sign Up</a></p>
+</body>
+
+{% endblock %}
+<!--</html>--!>
